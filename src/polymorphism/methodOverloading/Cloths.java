@@ -1,6 +1,6 @@
 package polymorphism.methodOverloading;
 
-public class Cloths extends Item{
+public class Cloths extends Item {
 
     String size, color;
     public Cloths(String name, double price, String size, String color) {
@@ -9,6 +9,7 @@ public class Cloths extends Item{
         this.color = color;
     }
 
+    @Override
     public String toString(){
         return "Cloths{ name= " + super.getName() + ", price= " + super.getPrice() + "$"+", size= " + size+", color= " + color+"}";
     }

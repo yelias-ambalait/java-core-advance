@@ -1,6 +1,6 @@
 package polymorphism.methodOverloading;
 
-public class Electronics extends Item{
+public class Electronics extends Item {
     private String brand;
     private int warrantyMonths;
 
@@ -9,6 +9,7 @@ public class Electronics extends Item{
         this.brand = brand;
         this.warrantyMonths = warrantyMonths;
     }
+    @Override
     public String toString(){
         return "Electronics{name: " + super.getName() + ", price: " + super.getPrice() + "$"+", brand: " + brand + ", warrantyMonths: " + warrantyMonths+"}";
     }
