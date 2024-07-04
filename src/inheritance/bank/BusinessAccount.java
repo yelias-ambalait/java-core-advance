@@ -4,9 +4,9 @@ public class BusinessAccount extends Account {
 
     private double loanBalance;
 
-    public BusinessAccount(String accountNumber, String accountHolderName, double initialBalance) {
+    public BusinessAccount(String accountNumber, String accountHolderName, double initialBalance, double loanBalance) {
         super(accountNumber, accountHolderName, initialBalance);
-        this.loanBalance = initialBalance;
+        this.loanBalance = loanBalance;
     }
 
     public double getLoanBalance() {
@@ -16,15 +16,15 @@ public class BusinessAccount extends Account {
     public void repayLoan(double amount) {
         if (amount > 0 && amount <= loanBalance) {
             loanBalance -= amount;
-            System.out.println("Repay loan amount: " + amount + "Remaining loan balance: " + loanBalance);
+            System.out.println("\nRepay loan amount: " + amount + "\nRemaining loan balance: " + loanBalance);
         }
     }
 
     @Override
     public void displayAccountDetails() {
-        System.out.println("Business Account number: " + getAccountNumber() +
-                "Account holder: " + getAccountHolderName() +
-                " Balance: " + getBalance() +
-                " Loan balance: " + loanBalance);
+        System.out.println("Business account details"+"\nBusiness Account number: " + getAccountNumber() +
+                "\nAccount holder: " + getAccountHolderName() +
+                " \nBalance: " + getBalance() +
+                " \nLoan balance: " + loanBalance);
     }
 }

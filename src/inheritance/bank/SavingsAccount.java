@@ -16,7 +16,7 @@ public class SavingsAccount extends Account{
     public void addInterest(){
         double interest = getBalance()*(interestRate/100);
         deposit(interest);
-        System.out.println("Interest is added. New balance: " + getBalance());
+        System.out.println(interest+" Interest is added. New balance: " + getBalance());
     }
 
     @Override
