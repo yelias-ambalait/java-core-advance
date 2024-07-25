@@ -19,11 +19,13 @@ public class Main {
            double withdrawAmount = scanner.nextDouble();
            bankAccount.withdraw(withdrawAmount);
            System.out.println("Withdraw successful. Current balance: "+bankAccount.getBalance());
-           bankAccount.withdraw(withdrawAmount);
+           System.out.println("Enter withdraw amount: ");
+           double withdrawAgain = scanner.nextDouble();
+           bankAccount.withdraw(withdrawAgain);
        } catch (IllegalArgumentException e) {
-           System.out.println("Error: "+e.getMessage());
+           System.err.println("Error: "+e.getMessage());
        } catch (InsufficientFundsException e) {
-           System.out.println("Error: "+e.getMessage());
+           System.err.println("Error: "+e.getMessage());
        } finally {
            System.out.println("Final balance: "+bankAccount.getBalance());
        }
