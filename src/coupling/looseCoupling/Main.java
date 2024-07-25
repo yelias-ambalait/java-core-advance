@@ -11,7 +11,7 @@ public class Main {
         User user = new User(1, "Mr. John");
         libraryManager.addUser(user);
 
-        System.out.println("Book: "+libraryManager.getBookById(1001).getBookTitle());
+        System.out.println("Book: "+libraryManager.getBookById(1001).getBookTitle()+"\tAuthor: "+libraryManager.getBookById(1001).getBookAuthor());
         System.out.println("User: "+libraryManager.getUserById(1).getUsername());
     }
 }

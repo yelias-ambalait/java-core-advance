@@ -4,7 +4,7 @@ public class BankAccountManagementSystem {
 
     public static void main(String[] args) {
 
-        BankAccount account = new BankAccount("1118119195300", "Yelias Ahmed", 5000);
+        BankAccount account = new BankAccount("1118119195300", "Makhdum Shah", 5000);
 
 
         System.out.println("Account details");
