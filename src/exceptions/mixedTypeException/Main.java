@@ -1,22 +1,43 @@
 package exceptions.mixedTypeException;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         Bank bank = new Bank();
 
         try {
-            bank.createAccount("111189895300", 500);
-            bank.createAccount("111199896300", 500);
+            System.out.println("Enter new account number: ");
+            String accountNumber1 = scanner.next();
+            System.out.println("Enter initial amount: ");
+            double amountFirst = scanner.nextDouble();
+            bank.createAccount(accountNumber1, amountFirst);
+            System.out.println("Current balance of "+accountNumber1+" : "+bank.getBalance(accountNumber1));
 
-            bank.deposit("111199896300", 700);
-            System.out.println("Current balance of 111199896300 after deposit: "+bank.getBalance("111199896300"));
+            System.out.println("Enter new account number: ");
+            String accountNumber2 = scanner.next();
+            System.out.println("Enter initial amount: ");
+            double amountSecond = scanner.nextDouble();
+            bank.createAccount(accountNumber2, amountSecond);
+            System.out.println("Current balance of "+accountNumber2+" :"+bank.getBalance(accountNumber1));
 
-            bank.withdraw("111199896300", 300);
-            System.out.println("Current balance of 111199896300 after withdraw: "+bank.getBalance("111199896300"));
+            System.out.println("Enter deposit amount: ");
+            double depositAmount = scanner.nextDouble();
+            bank.deposit(accountNumber2, depositAmount);
+            System.out.println("Balance of "+accountNumber2+" after deposit: "+bank.getBalance(accountNumber2));
 
-            bank.transfer("111199896300", "111189895300", 200);
-            System.out.println("Balance of 111199896300 after transfer: "+bank.getBalance("111199896300"));
-            System.out.println("Balance of 111189895300 after transfer: "+bank.getBalance("111189895300"));
+            System.out.println("Enter withdraw amount: ");
+            double withdrawAmount = scanner.nextDouble();
+            bank.withdraw(accountNumber2, withdrawAmount);
+            System.out.println("Current balance of "+accountNumber2+" after withdraw: "+bank.getBalance(accountNumber2));
+
+            System.out.println("Enter transfer amount: ");
+            double transferAmount = scanner.nextDouble();
+            bank.transfer(accountNumber1, accountNumber2, transferAmount);
+            System.out.println("Balance of "+accountNumber1+" after transfer: "+bank.getBalance(accountNumber1));
+            System.out.println("Balance of "+accountNumber2+" after transfer: "+bank.getBalance(accountNumber2));
 
             bank.deposit("111568968", 500);
 
