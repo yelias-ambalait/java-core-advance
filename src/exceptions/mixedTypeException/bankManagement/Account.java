@@ -1,4 +1,4 @@
-package exceptions.mixedTypeException;
+package exceptions.mixedTypeException.bankManagement;
 
 public class Account {
     private String accountNumber;

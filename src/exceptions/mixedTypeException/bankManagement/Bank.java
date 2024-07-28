@@ -1,4 +1,4 @@
-package exceptions.mixedTypeException;
+package exceptions.mixedTypeException.bankManagement;
 
 import java.util.HashMap;
 import java.util.Map;
