@@ -1,4 +1,4 @@
-package file_IO_Serialization.readingFile;
+package file_IO_Serialization.file_IO.readingFile;
 
 import java.io.*;
 
