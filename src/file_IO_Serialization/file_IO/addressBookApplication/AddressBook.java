@@ -65,7 +65,7 @@ public class AddressBook {
     private static void viewContacts() {
         File file = new File(FILE_PATH);
         if(!file.exists() || file.length() == 0) {
-            System.out.println("Sorry! Address Book is empty. Please add contact.");
+            System.out.println("Sorry! Address Book is empty. Please add contact.[0]");
             return;
         }
 
@@ -88,7 +88,7 @@ public class AddressBook {
             e.printStackTrace();
         }
         if (!hasContacts) {
-            System.out.println("Sorry! Address Book is empty. Please add contact.");
+            System.out.println("Sorry! Address Book is empty. Please add contact.[1]");
         }
     }
 
