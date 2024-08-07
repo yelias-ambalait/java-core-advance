@@ -1,13 +1,15 @@
 package file_IO_Serialization.file_IO;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TaskManagerApplication {
     private static final String FILE_PATH = "tasks.txt";
-
+    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
 
         while (true) {
             System.out.println("Task Manager Menu:");
@@ -22,16 +24,16 @@ public class TaskManagerApplication {
 
             switch (option) {
                 case 1:
-                    addTask(scanner);
+                    addTask();
                     break;
                 case 2:
                     viewTasks();
                     break;
                 case 3:
-                    updateTask(scanner);
+                    updateTask();
                     break;
                 case 4:
-                    deleteTask(scanner);
+                    deleteTask();
                     break;
                 case 5:
                     System.out.println("Exiting...");
@@ -43,7 +45,7 @@ public class TaskManagerApplication {
         }
     }
 
-    private static void addTask(Scanner scanner) {
+    private static void addTask() {
         System.out.println("Enter task description: ");
         String description = scanner.nextLine();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
@@ -58,7 +60,7 @@ public class TaskManagerApplication {
         private static void viewTasks() {
         File file = new File(FILE_PATH);
         if (!file.exists() || file.length() == 0) {
-            System.out.println("No tasks are available. Please add tasks, and check then.");
+            System.out.println("No tasks are available. Please add tasks and then view them.");
             return;
         }
 
@@ -67,16 +69,90 @@ public class TaskManagerApplication {
             int taskCount = 1;
             System.out.println("Tasks:");
             while((line = reader.readLine()) != null) {
-                System.out.println(line);
+                System.out.println(taskCount++ +". "+line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public static void updateTask(Scanner scanner) {
+    public static void updateTask() {
+        List<String> tasks = new ArrayList<>();
+        File file = new File(FILE_PATH);
 
+        if (!file.exists() || file.length() == 0) {
+            System.out.println("No tasks are available. Please add tasks and then update them.");
+            return;
+        }
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                tasks.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        viewTasks();
+        System.out.println("Enter task number to update: ");
+        int taskNumber = Integer.parseInt(scanner.nextLine());
+
+        if (taskNumber <= 0 || taskNumber > tasks.size()) {
+            System.out.println("Invalid task number.");
+            return;
+        }
+
+        System.out.println("Enter new task description: ");
+        String newDescription = scanner.nextLine();
+
+        tasks.set(taskNumber - 1, newDescription);
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (String task : tasks) {
+                writer.write(task);
+                writer.newLine();
+            }
+            System.out.println("Task updated successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    public static void deleteTask(Scanner scanner) {
+    public static void deleteTask() {
+        List<String> tasks = new ArrayList<>();
+        File file = new File(FILE_PATH);
 
+        if (!file.exists() || file.length() == 0) {
+            System.out.println("No task is available. Add task then delete.");
+            return;
+        }
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while((line = reader.readLine()) != null) {
+                tasks.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        viewTasks();
+        System.out.println("Enter task number to delete: ");
+        int taskNumber = Integer.parseInt(scanner.nextLine());
+
+        if (taskNumber <=0 || taskNumber > tasks.size()) {
+            System.out.println("Invalid task number.");
+            return;
+        }
+        tasks.remove(taskNumber - 1);
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (String task : tasks) {
+                writer.write(task);
+                writer.newLine();
+            }
+            System.out.println("Task is deleted successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
