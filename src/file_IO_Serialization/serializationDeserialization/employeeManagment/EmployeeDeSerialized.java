@@ -1,4 +1,4 @@
-package file_IO_Serialization.serialization.serialize.employeeManagment;
+package file_IO_Serialization.serializationDeserialization.employeeManagment;
 
 import java.io.FileInputStream;
 import java.io.IOException;

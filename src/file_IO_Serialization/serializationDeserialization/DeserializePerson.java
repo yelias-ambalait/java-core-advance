@@ -1,4 +1,4 @@
-package file_IO_Serialization.serialization.serialize;
+package file_IO_Serialization.serializationDeserialization;
 
 import java.io.FileInputStream;
 import java.io.IOException;
