@@ -20,7 +20,5 @@ public class LinkedListMain {
         System.out.println();
 
         systemLinkedList.showAllTickets();
-
-
     }
 }
