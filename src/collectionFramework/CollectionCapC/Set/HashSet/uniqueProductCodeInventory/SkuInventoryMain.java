@@ -1,4 +1,4 @@
-package collectionFramework.CollectionCapC.Set.uniqueProductCodeInventory;
+package collectionFramework.CollectionCapC.Set.HashSet.uniqueProductCodeInventory;
 
 public class SkuInventoryMain {
     public static void main(String[] args) {
@@ -10,6 +10,10 @@ public class SkuInventoryMain {
 
         System.out.println("Is SKU-124 product in inventory? "+inventorySystem.isProductInInventory("SKU-124"));
         System.out.println("Is SKU-1298 product in inventory? "+inventorySystem.isProductInInventory("SKU-1298"));
+
+        inventorySystem.displayAllProducts();
+
+        inventorySystem.removeProduct("SKU-124");
 
         inventorySystem.displayAllProducts();
     }

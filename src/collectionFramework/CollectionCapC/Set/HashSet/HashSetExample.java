@@ -1,4 +1,4 @@
-package collectionFramework.CollectionCapC.Set;
+package collectionFramework.CollectionCapC.Set.HashSet;
 
 import java.util.HashSet;
 

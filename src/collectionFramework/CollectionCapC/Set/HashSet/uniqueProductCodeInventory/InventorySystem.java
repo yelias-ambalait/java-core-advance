@@ -1,4 +1,4 @@
-package collectionFramework.CollectionCapC.Set.uniqueProductCodeInventory;
+package collectionFramework.CollectionCapC.Set.HashSet.uniqueProductCodeInventory;
 
 import java.util.HashSet;
 
@@ -13,6 +13,9 @@ public class InventorySystem {
     }
     public boolean isProductInInventory(String sku) {
         return productSKUs.contains(sku);
+    }
+    public boolean removeProduct(String sku) {
+        return productSKUs.remove(sku);
     }
     public void displayAllProducts() {
         System.out.println("Product SKUs: " + productSKUs);
