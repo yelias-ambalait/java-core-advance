@@ -26,5 +26,14 @@ public class TreeSetExample {
         System.out.println(numbers.size());
         System.out.println("Fruits list: " + fruits);
         System.out.println("Numbers: " + numbers);
+
+        System.out.println("First:"+fruits.first());
+        System.out.println("First:"+numbers.first());
+
+        System.out.println("Last:"+fruits.last());
+        System.out.println("Last:"+numbers.last());
+
+        System.out.println("Subset:"+fruits.subSet("Banana", "Dragon fruit"));
+        System.out.println("Subset:"+numbers.subSet(3, 7));
     }
 }
